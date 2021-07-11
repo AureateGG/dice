@@ -1,10 +1,13 @@
 #Dice.rb
 class Dice
-    def roll (num = 1)
-        num.times do
+
+    attr_reader :results
+    def roll(n)
+        @results = []
+        n.times do 
         result = rand(1..6)
-        dice_arr = []
-        dice_arr.push(result)
+        results.push(result)
+        end
     end
 
 end

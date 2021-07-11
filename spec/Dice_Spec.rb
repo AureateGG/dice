@@ -1,21 +1,27 @@
 #Dice_Spec
 require "Dice"
+
 describe Dice do
-    it "responds to roll dice" do
+    it "Dice responds to roll dice" do
         expect(subject).to respond_to(:roll)
     end
-describe "#roll" do
-    it "rolls number between 1 and 6" do
-        expect(subject.roll).to be_between(1, 6)
-        end
+
+    it "should give a result between 1 and 6 every time" do
+        dice = Dice.new
+        expect(dice.roll(1)).to be_between(1, 6)
     end
 
-describe "#roll" do
-    dice = Dice.new
-    dice_arr = dice.roll(5)
-    it "returns multiple rolls" do
-        expect(dice_arr.length).to eq 5
+    it "should be possible to roll multiple dice" do
+        dice = Dice.new
+        dice.roll(10)
+        expect(dice.results.count).to eq 10
+    end
+
+    it "should view current score" do
+        dice = Dice.new
+        dice.roll(10)
+        expect(dice.results[9]). to be_between(1, 6)
     end
 end
 
-end
+
